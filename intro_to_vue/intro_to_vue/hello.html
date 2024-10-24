@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <!--Vue will manage all the HTML here.-->
+
+        <h1>Hello Vue!</h1>
+
+        <p>{{message}}</p>
+
+        <button v-on: click="addExclamationPoints">Add Exclamation Points</button>
+
+    </div>
+
+    <script>
+
+        const {createApp, ref} = Vue
+        createApp({
+            setup(){
+                //define things the Vue app needs here.
+
+                const message = ref('Test')
+
+                // function addExclamationPoints(){
+                //     message.value = message.value + '!!!'
+                // }
+
+                return{
+                    //returns the things that are created
+                    message,
+                    //addExclamationPoints
+                }
+            }
+        }).mount('#app')//connects the vue app with HTML above
+
+    </script>
+    
+</body>
+</html>
