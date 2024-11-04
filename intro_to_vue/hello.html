@@ -14,7 +14,7 @@
 
         <p>{{message}}</p>
 
-        <button v-on: click="addExclamationPoints">Add Exclamation Points</button>
+        <button v-on:click="addExclamationPoints">Add Exclamation Points</button>
 
     </div>
 
@@ -27,14 +27,14 @@
 
                 const message = ref('Test')
 
-                // function addExclamationPoints(){
-                //     message.value = message.value + '!!!'
-                // }
+                 function addExclamationPoints(){
+                    message.value = message.value + '!!!'
+                 }
 
                 return{
                     //returns the things that are created
                     message,
-                    //addExclamationPoints
+                    addExclamationPoints
                 }
             }
         }).mount('#app')//connects the vue app with HTML above

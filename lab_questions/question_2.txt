@@ -1,0 +1,5 @@
+Property ... was accessed during render but is not defined on instance.
+
+This means that the variable you are attempting to use in the Vue managed code has not been defined or returned
+in the createApp/setup section of the code. You are not able to ignore this because as far as the code
+is concerned, the variable does not exist or has not be instantiated.

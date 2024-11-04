@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+</head>
+<body>
+
+    <div id="app"> <!--Vue manages the code in this div-->
+        <h1>Task List</h1>
+        <h2>Enter new task</h2>
+        <label>Please enter items to the list: </label>
+        <input v-model="newTask"> <!--Input set to const newTask-->
+        <button v-on:click="addTask">Add to Task</button> <!--button set to function addtask-->
+        <h2>Task List: </h2>
+        <ul>
+            <li v-for="task in taskList"> <!--for each task in task list add <li> element-->
+                {{task}}
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        const { createApp, ref, computed } = Vue
+
+        createApp({
+            setup(){
+                //const variables to hold data
+                const taskList = ref(['Water plants', 'Pay bills', 'Feed pets'])
+                const newTask = ref(null)
+                //function linked to button that adds data to list
+                function addTask(){                   
+                    if(newTask.value){
+                        taskList.value.push(newTask.value)
+                        newTask.value = null
+                    }
+                }
+                return{ //returns variables for use by Vie
+                    taskList,newTask,addTask
+                }
+            }
+        }).mount('#app')
+
+    </script>
+</body>
+</html>
